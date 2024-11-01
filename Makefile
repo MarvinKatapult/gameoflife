@@ -6,11 +6,8 @@ INC_RAYLIB = -Lraylib/src -lraylib -Iraylib/src
 
 .PHONY: raylib
 
-all: raylib cvecs.o
-	$(CC) -o $(BIN) $(CFLAGS) gameoflife.c cvecs.o $(INC_RAYLIB) -I./ -Iexternal -lm
-
-cvecs.o:
-	$(CC) -c cvecs.o $(CFLAGS) external/cvecs/cvecs.c -I./external
+all: raylib 
+	$(CC) -o $(BIN) $(CFLAGS) gameoflife.c $(INC_RAYLIB) -I./ -Iexternal -lm
 
 raylib:
 	cd raylib/src && $(MAKE) -j5
